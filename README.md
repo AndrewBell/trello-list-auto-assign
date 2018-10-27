@@ -56,6 +56,22 @@ export TRELLO_API_KEY='myapikey'
 export TRELLO_API_TOKEN='myapitoken'
 ```
 
+## Clean Up
+
+To delete your Trello webhooks:
+
+[Search All Webhooks](https://developers.trello.com/v1.0/reference#tokenstokenwebhooks)
+
+`curl https://api.trello.com/1/tokens/$TRELLO_API_TOKEN/webhooks?key=$TRELLO_API_KEY`
+
+[Delete By Id](https://developers.trello.com/v1.0/reference#webhooksid-1)
+
+`curl -X "DELETE" https://api.trello.com/1/webhooks/<webhookId>?key=$TRELLO_API_KEY`
+
+## Resources
+
+[Trello API Docs](https://developers.trello.com/v1.0/reference)
+
 ## Contributing
 
 If you would like to make an update to this project, fork and open a pull request. If you have any questions, please feel free to reach out (contact info below)

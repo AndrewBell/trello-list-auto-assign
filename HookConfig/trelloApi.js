@@ -77,6 +77,7 @@ exports.findExistingWebhook = (payload) => new Promise((resolve, reject) => {
       const results = JSON.parse(response);
       let didFindExisting = false;
       if (Array.isArray(results) && results.length > 0) {
+        console.log(`Found ${results.length} total webhooks for API Token.`);
         for (const result of results) {
           if (result.idModel === payload.listId && result.callbackURL === payload.callbackUrl) {
             didFindExisting = true;
@@ -96,7 +97,6 @@ exports.findExistingWebhook = (payload) => new Promise((resolve, reject) => {
     })
 });
 
-
 exports.createWebhook = (payload) => new Promise((resolve, reject) => {
 
   const options = {
@@ -105,7 +105,7 @@ exports.createWebhook = (payload) => new Promise((resolve, reject) => {
     qs:
       {
         description: `events for list ${payload.listId} on board ${payload.boardId}`,
-        callbackURL: callbackUrl,
+        callbackURL: payload.callbackUrl,
         idModel: payload.listId,
         active: true,
         key: payload.apiKey,
@@ -116,7 +116,7 @@ exports.createWebhook = (payload) => new Promise((resolve, reject) => {
   return request(options)
     .then((response) => {
       const results = JSON.parse(response);
-      const webhookId = results[0].id;
+      const webhookId = results.id;
       console.log(`Created webhook ID: '${webhookId}'`);
       resolve({...payload, webhookId});
     })
