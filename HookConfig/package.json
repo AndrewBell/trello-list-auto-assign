@@ -1,0 +1,17 @@
+{
+    "name": "trello-webhook-bootstrap",
+    "version": "1.0.0",
+    "description": "Set up trello webhooks",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "andrew@recursivechaos.com",
+    "license": "MIT",
+    "dependencies": {
+        "minimist": "^1.2.0",
+        "request": "^2.88.0",
+        "request-promise-native": "^1.0.5"
+    }
+}
