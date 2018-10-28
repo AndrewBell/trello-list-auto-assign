@@ -1,0 +1,22 @@
+{
+  "name": "trello-callback-list-auto-assign",
+  "version": "1.0.0",
+  "description": "Assigns all cards on the given list to a set user, removes user when removed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewBell/trello-webhook-admin.git"
+  },
+  "author": "andrew@recursivechaos.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndrewBell/trello-webhook-admin/issues"
+  },
+  "homepage": "https://github.com/AndrewBell/trello-webhook-admin#readme",
+  "dependencies": {
+    "trello": "^0.9.0"
+  }
+}

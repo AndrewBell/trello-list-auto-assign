@@ -1,6 +1,8 @@
 # Trello Webhook Platform
 
-Manage Trello webhooks and find examples 
+Assigns all cards on the given list to a set user, removes user when removed.
+
+Uses [Google Cloud Functions](https://cloud.google.com/functions/)
 
 ## Goals
 
@@ -32,11 +34,15 @@ Get an [API Key and Token](https://trello.com/app-key)
 
 Push the Trello Callback Listener to GCP:
 
-`gcloud functions deploy handleTrelloCallback --source ./CallbackListener --runtime nodejs8 --trigger-http`
+`gcloud beta functions deploy handleTrelloHook --source ./CallbackListener --runtime nodejs8 --trigger-http --set-env-vars TRELLO_API_KEY=$TRELLO_API_KEY,TRELLO_API_TOKEN=$TRELLO_API_TOKEN`
 
 Once deployed, get the deployed URL:
 
-`gcloud functions describe handleTrelloCallback`
+`gcloud functions describe handleTrelloHook`
+
+Updating can be reduced (although the above is idempodent)
+
+`gcloud functions deploy handleTrelloHook --source ./CallbackListener --runtime nodejs8  `
 
 ### Configure Trello
 
@@ -70,6 +76,13 @@ To delete your Trello webhooks:
 ## Resources
 
 [Trello API Docs](https://developers.trello.com/v1.0/reference)
+
+## TODO
+
+* Pass secrets via KMS https://cloud.google.com/kms/docs/secret-management
+* Update HookConfig to use existing APIs
+* Interactive HookConfig
+* Validate webhook signature: https://developers.trello.com/page/webhooks#section-webhook-signatures
 
 ## Contributing
 
