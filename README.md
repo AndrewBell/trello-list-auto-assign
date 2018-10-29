@@ -80,7 +80,7 @@ To delete your Trello webhooks:
 ## TODO
 
 * Pass secrets via KMS https://cloud.google.com/kms/docs/secret-management
-* Update HookConfig to use existing APIs
+* Update HookConfig to use npm `trello` module
 * Interactive HookConfig
 * Validate webhook signature: https://developers.trello.com/page/webhooks#section-webhook-signatures
 
