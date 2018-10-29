@@ -1,13 +1,10 @@
-# Trello Webhook Platform
+# Trello List Auto Assigner
 
-Assigns all cards on the given list to a set user, removes user when removed.
+Assigns Trello card to a user when they move it to a particular list.
 
-Uses [Google Cloud Functions](https://cloud.google.com/functions/)
+HookConfig - Local npm module to configure a Trello webhook for the subscribed list
 
-## Goals
-
-* Easily create and update webhooks
-* Create a callback function to automatically assign cards to users based on list
+CallbackListener - [Google Cloud Function](https://cloud.google.com/functions/) callback to add users to the card they add to lists, and remove them from the card when they remove it.
 
 ## Requirements
 
@@ -72,6 +69,10 @@ To delete your Trello webhooks:
 [Delete By Id](https://developers.trello.com/v1.0/reference#webhooksid-1)
 
 `curl -X "DELETE" https://api.trello.com/1/webhooks/<webhookId>?key=$TRELLO_API_KEY`
+
+Delete your GCP Function
+
+`gcloud functions delete handleTrelloHook`
 
 ## Resources
 
